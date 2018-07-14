@@ -6,7 +6,7 @@
 /*   By: jpirzent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/06 13:50:36 by jpirzent          #+#    #+#             */
-/*   Updated: 2018/07/11 17:46:57 by jpirzent         ###   ########.fr       */
+/*   Updated: 2018/07/14 08:33:11 by jpirzent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int		ft_printf(char *format, ...)
 				i = va_arg(list, int);
 				if (i > 0)
 					ft_putbnbr(8, i);
+				else
+					ft_putbnbr(8, INT_MA + i);
 			}
 			else if (format[index + 1] == 'x')
 			{
@@ -88,6 +90,11 @@ int		ft_printf(char *format, ...)
 				i = va_arg(list, int);
 				ft_putD(i);
 			}
+			else if (format[index + 1] == 'p')
+			{
+				i = va_arg(list, int);
+				write(1, &i, 1);
+			}
 			else if (format[index + 1] == '%')
 				ft_putchar('%');
 		}
@@ -104,11 +111,12 @@ int		main(void)
 	char			s[] = "#not";
 	char			c = 'n';
 	int				i = -8;
-	unsigned int	u = -12300;
+	int				u = -12300;
 	int				o = 23;
-	int				x = -31;
+	int				x = 31;
 	int				X = -255;
 	int				d = 2131;
+
 	ft_printf("ft_printf:	james is cool  %s %i %o %c %u %x %X %d %% \n", s, i, o, c, u, x, X, d);
 	printf("printf:		james is cool  %s %i %o %c %u %x %X %d %% \n", s, i, o, c, u, x, X, d);
 }
