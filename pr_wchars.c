@@ -6,7 +6,7 @@
 /*   By: jpirzent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 12:45:43 by jpirzent          #+#    #+#             */
-/*   Updated: 2018/08/10 14:08:08 by jpirzent         ###   ########.fr       */
+/*   Updated: 2018/08/10 14:11:19 by jpirzent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			pr_wchars(char fmt, va_list list)
 		return (-1);
 }
 
-static int	pr_wcsize(unsigned int wc)
+static char	pr_wcsize(unsigned int wc)
 {
 	if (wc <= 127)
 		return (1);
@@ -48,7 +48,7 @@ static int	pr_wcsize(unsigned int wc)
 int			pr_putwchar(wchar_t wc)
 {
 	int				c;
-	int				size;
+	char			size;
 	unsigned char	byte;
 
 	c = 0;
@@ -58,11 +58,10 @@ int			pr_putwchar(wchar_t wc)
 	byte = (260 << (4 - size)) | (wc >> ((size - 1) * 6));
 	c += pr_putchar(byte);
 	size--;
-	while (size >= 0)
+	while (size--)
 	{
 		byte = ((wc >> ((size) * 6)) & 63) | 128;
 		c += pr_putchar(byte);
-		size--;
 	}
 	return (c);
 }
