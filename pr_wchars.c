@@ -6,7 +6,7 @@
 /*   By: jpirzent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 12:45:43 by jpirzent          #+#    #+#             */
-/*   Updated: 2018/08/10 13:15:05 by jpirzent         ###   ########.fr       */
+/*   Updated: 2018/08/10 13:51:34 by jpirzent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			pr_wchars(char fmt, va_list list)
 		return (-1);
 }
 
-static int	pr_wcsize(wchar_t wc)
+static int	pr_wcsize(unsigned int wc)
 {
 	if (wc <= 127)
 		return (1);
