@@ -6,7 +6,7 @@
 /*   By: jpirzent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 12:45:43 by jpirzent          #+#    #+#             */
-/*   Updated: 2018/08/10 14:11:19 by jpirzent         ###   ########.fr       */
+/*   Updated: 2018/08/10 14:30:32 by jpirzent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int			pr_putwstr(wchar_t *ws)
 	if (ws == NULL)
 		return (pr_putstr("(null)"));
 	while (ws[i] != '\0')
-		c += pr_putchar(ws[i++]);
+		c += pr_putwchar(ws[i++]);
 	return (c);
 }
 

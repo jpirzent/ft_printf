@@ -6,7 +6,7 @@
 /*   By: jpirzent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 13:36:12 by jpirzent          #+#    #+#             */
-/*   Updated: 2018/08/10 13:03:11 by jpirzent         ###   ########.fr       */
+/*   Updated: 2018/08/10 15:28:01 by jpirzent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int		ft_printf(char *format, ...)
 	int			c;
 
 	va_start(list, format);
-	i = 0;
+	i = -1;
 	c = 0;
-	while (format[i])
-	{
+	while (format[++i])
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '%')
@@ -37,8 +36,6 @@ int		ft_printf(char *format, ...)
 		}
 		else if (format[i] != '%')
 			c += pr_putchar(format[i]);
-		i++;
-	}
 	va_end(list);
 	return (c);
 }
