@@ -6,7 +6,7 @@
 /*   By: jpirzent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 12:45:43 by jpirzent          #+#    #+#             */
-/*   Updated: 2018/08/09 12:29:45 by jpirzent         ###   ########.fr       */
+/*   Updated: 2018/08/10 13:15:05 by jpirzent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int			pr_cints(char fmt, va_list list)
 	{
 		n = va_arg(list, long);
 		if (n < 0)
-			n = UINT_MX - n;
+			n = UINT_MX + n;
 		return (pr_putnbr_b(n, 8));
 	}
 	else
